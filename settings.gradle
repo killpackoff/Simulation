@@ -1,0 +1,4 @@
+include ':app:figth'
+include ':app:main'
+include ':core'
+rootProject.name = "Simulation"
