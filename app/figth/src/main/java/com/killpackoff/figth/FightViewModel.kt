@@ -12,13 +12,13 @@ import javax.inject.Inject
  */
 @FightScope
 class FightViewModel @Inject constructor(private val fight: Fight) : ViewModel() {
+    private var _turnLiveData = MediatorLiveData<Int>()
+    var turnLiveData: LiveData<Int> = _turnLiveData
 
     init {
         fight.turnData = ::updateTurn
+        _turnLiveData.value = fight.turnCount
     }
-
-    private var _turnLiveData = MediatorLiveData<Int>()
-    var turnLiveData: LiveData<Int> = _turnLiveData
 
     private fun updateTurn(count: Int) {
         _turnLiveData.value = count

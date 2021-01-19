@@ -4,14 +4,15 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import javax.inject.Singleton
 
 /**
  * @author ma.kolpakov
  */
 @Component(modules = [CreatureModule::class])
 interface CoreComponent {
+    @Singleton
     fun simple(): Fight
-    fun creature():ICreature
 }
 
 @Module

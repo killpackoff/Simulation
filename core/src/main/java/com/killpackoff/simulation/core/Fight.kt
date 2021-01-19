@@ -9,10 +9,17 @@ import kotlin.properties.Delegates.observable
  * @author ma.kolpakov
  */
 class Fight @Inject constructor(val creatureA: ICreature, val creatureB: ICreature) {
-    private var turnCount by observable(0){ _, _, new ->
+    var turnCount by observable(0){ _, _, new ->
         turnData?.invoke(new)
     }
+    private set
+
     var turnData: ((Int) -> Unit)? = null
+
+//    set(value) {
+//        field= value
+//        field?.invoke(turnCount)
+//    }
 
     fun turn() {
         var attacking = creatureA
