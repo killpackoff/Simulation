@@ -2,6 +2,7 @@ buildscript {
     ext.dagger_version = '2.31'
     ext.kotlin_version = '1.4.21'
     ext.lifecycle_version = '2.2.0'
+    ext.fragment_version = '2'
     repositories {
         google()
         jcenter()
@@ -19,6 +20,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+
     }
 }
 

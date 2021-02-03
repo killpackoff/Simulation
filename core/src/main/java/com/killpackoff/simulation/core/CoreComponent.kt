@@ -4,20 +4,42 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import javax.inject.Named
+import javax.inject.Qualifier
+import javax.inject.Scope
 import javax.inject.Singleton
 
 /**
  * @author ma.kolpakov
  */
-@Component(modules = [CreatureModule::class])
+
+@Scope
+@Retention(value = AnnotationRetention.RUNTIME)
+annotation class Core
+
+
+@Core
+@Component(modules = [CoreModule::class])
 interface CoreComponent {
-    @Singleton
-    fun simple(): Fight
+//    fun inject(fight:Fight)
 }
 
 @Module
-class CreatureModule{
+ class CoreModule {
+//    @Singleton
+//    @Provides
+//     fun fight(creature1: ICreature, creature2: ICreature): Fight{
+//         return Fight(creature1,creature2)
+//     }
+
+    @Core
+    @Named("creatureA")
     @Provides
-    fun creature(): ICreature = SimpleCreature()
+    fun creatureA(): ICreature = SimpleCreature()
+
+    @Core
+    @Named("creatureB")
+    @Provides
+    fun creatureB(): ICreature = SimpleCreature()
 }
 

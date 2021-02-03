@@ -1,14 +1,18 @@
 package com.killpackoff.figth.di
 
-import com.killpackoff.simulation.core.CoreComponent
+import com.killpackoff.figth.creature.CreatureFragment
+import com.killpackoff.simulation.core.CoreModule
+import com.killpackoff.simulation.core.Fight
 import dagger.Component
 import javax.inject.Singleton
 
 /**
  * @author ma.kolpakov
  */
-@Component(dependencies = [CoreComponent::class],modules = [SubComponentsModule::class])
-@Singleton
-interface AppComponent {
-    fun fightComponent(): FightComponent.Factory
-}
+//@Singleton
+//@Component(modules = [CoreModule::class, FightSubComponentModule::class])
+//interface AppComponent {
+//    fun fightComponent(): FightComponent.Factory
+//    fun fight(): Fight
+//    fun inject(creatureFragment:CreatureFragment)
+//}
