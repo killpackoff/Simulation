@@ -9,10 +9,11 @@ import javax.inject.Singleton
 /**
  * @author ma.kolpakov
  */
-//@Singleton
-//@Component(modules = [CoreModule::class, FightSubComponentModule::class])
-//interface AppComponent {
+@Singleton
+@Component()
+//@Component(modules = [CoreModule::class, CreatureSubComponentModule::class])
+interface AppComponent {
 //    fun fightComponent(): FightComponent.Factory
 //    fun fight(): Fight
 //    fun inject(creatureFragment:CreatureFragment)
-//}
+}

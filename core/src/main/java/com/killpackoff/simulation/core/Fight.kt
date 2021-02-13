@@ -8,14 +8,7 @@ import kotlin.properties.Delegates.observable
 /**
  * @author ma.kolpakov
  */
-class Fight @Inject constructor() {
-    @Inject
-    @field:Named("creatureA")
-    lateinit var creatureA: ICreature
-
-    @Inject
-    @field:Named("creatureB")
-    lateinit var creatureB: ICreature
+class Fight @Inject constructor(var creatureA: ICreature,var creatureB: ICreature) {
 
     var turnCount = 0
 

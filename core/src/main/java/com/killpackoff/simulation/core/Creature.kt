@@ -3,8 +3,9 @@ package com.killpackoff.simulation.core
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
-abstract class ICreature {
-   open var health by Delegates.observable(100) { _, _, new ->
+abstract class ICreature (val name:String){
+
+    open var health by Delegates.observable(100) { _, _, new ->
         healthData?.invoke(new)
     }
 
@@ -17,7 +18,7 @@ abstract class ICreature {
  * @author ma.kolpakov
  */
 
-class SimpleCreature @Inject constructor() : ICreature() {
+class SimpleCreature @Inject constructor(name: String) : ICreature(name) {
     override fun getAttackCommand(): AttackCommand {
         return SimpleAttack()
     }
