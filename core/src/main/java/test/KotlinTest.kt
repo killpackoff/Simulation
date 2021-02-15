@@ -13,24 +13,6 @@ import io.reactivex.subjects.Subject
  * @author ma.kolpakov
  */
 fun main() {
-
-    println("_Start_")
-    Thread.currentThread().uncaughtExceptionHandler = Thread.UncaughtExceptionHandler { p0, p1 ->
-        println("UncaughtExceptionHandler")
-    }
-    RxJavaPlugins.setErrorHandler { println("RxPlugin") }
-    val publishSubject = PublishSubject.create<String?>()
-    publishSubject.onErrorReturn {
-        println("OnerorReturn")
-        "Deff"
-    }.subscribe( {
-        println(it)
-    },{
-        println("Error")
-    })
-    publishSubject.onNext("First")
-//    publishSubject.onNext(null)
-    publishSubject.onNext("sec")
 }
 
 class MainTest {

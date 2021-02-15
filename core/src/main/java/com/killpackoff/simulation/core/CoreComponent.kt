@@ -19,16 +19,16 @@ annotation class Core
 @Core
 @Component(modules = [CoreModule::class])
 interface CoreComponent {
-//    fun inject():Fight
+    fun fight():Fight
+    fun activity():Activity
 }
-
 @Module
 class CoreModule {
-    @Singleton
+    @Core
     @Provides
     fun fight(
         @Named("creatureA") creature1: ICreature,
-        @Named("creatureA") creature2: ICreature
+        @Named("creatureB") creature2: ICreature
     ): Fight {
         return Fight(creature1, creature2)
     }
@@ -52,7 +52,5 @@ class CoreModule {
     @Named("VM2")
     @Provides
     fun vm2(@Named("creatureB") creature: ICreature): CreatureVM = CreatureVM(creature)
-
-
 }
 

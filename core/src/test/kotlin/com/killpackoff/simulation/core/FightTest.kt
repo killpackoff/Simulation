@@ -1,6 +1,7 @@
 package com.killpackoff.simulation.core
 
-import org.junit.Assert
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 
@@ -10,7 +11,16 @@ import org.junit.Test
 internal class FightTest {
     @Test
     fun turn() {
-        DaggerCoreComponent
+        val component = DaggerCoreComponent.create()
+        val fight = component.fight()
+        val activity = component.activity()
+        runBlocking {
+            for (i in 1..20) {
+                println(fight.turnCount)
+                delay(1000)
+                fight.turn()
+            }
+        }
     }
 
 

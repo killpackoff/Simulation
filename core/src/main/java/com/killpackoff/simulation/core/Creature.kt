@@ -1,15 +1,11 @@
 package com.killpackoff.simulation.core
 
+import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
-import kotlin.properties.Delegates
 
 abstract class ICreature (val name:String){
 
-    open var health by Delegates.observable(100) { _, _, new ->
-        healthData?.invoke(new)
-    }
-
-    var healthData: ((Int) -> Unit)? = null
+    var health = MutableStateFlow(100)
 
     abstract fun getAttackCommand(): AttackCommand
 }
@@ -30,7 +26,7 @@ interface AttackCommand {
 
 class SimpleAttack : AttackCommand {
     override fun apply(creature: ICreature) {
-        creature.health -= 10
+        creature.health.value -= 10
     }
 
 }
