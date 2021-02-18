@@ -1,3 +1,4 @@
+include ':app:components'
 include ':app:figth'
 include ':core'
 rootProject.name = "Simulation"

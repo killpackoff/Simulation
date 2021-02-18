@@ -12,8 +12,6 @@ class Fight @Inject constructor(var creatureA: ICreature,var creatureB: ICreatur
 
     var turnCount = 0
 
-    var turnData: ((Int) -> Unit)? = null
-
     fun turn() {
         var attacking = creatureA
         var defending = creatureB
@@ -22,9 +20,12 @@ class Fight @Inject constructor(var creatureA: ICreature,var creatureB: ICreatur
             defending = creatureA
         }
 
-        val attackCommand = attacking.getAttackCommand()
+        val attackCommand = attacking.getSkillList().first().getCommand(this)
         attackCommand.apply(defending)
         turnCount++
     }
 
+    fun applyCommand(){
+
+    }
 }

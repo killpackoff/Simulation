@@ -14,6 +14,7 @@ class SimulationApp: Application() {
         appComponent= DaggerAppComponent.builder().build()
     }
 }
+
 fun Application.component():AppComponent{
     return (this as SimulationApp).appComponent
 }

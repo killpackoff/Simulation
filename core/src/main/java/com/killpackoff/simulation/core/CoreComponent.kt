@@ -20,8 +20,8 @@ annotation class Core
 @Component(modules = [CoreModule::class])
 interface CoreComponent {
     fun fight():Fight
-    fun activity():Activity
 }
+
 @Module
 class CoreModule {
     @Core
@@ -42,15 +42,5 @@ class CoreModule {
     @Named("creatureB")
     @Provides
     fun creatureB(): ICreature = SimpleCreature("Петя")
-
-    @Core
-    @Named("VM1")
-    @Provides
-    fun vm1(@Named("creatureA") creature: ICreature): CreatureVM = CreatureVM(creature)
-
-    @Core
-    @Named("VM2")
-    @Provides
-    fun vm2(@Named("creatureB") creature: ICreature): CreatureVM = CreatureVM(creature)
 }
 
