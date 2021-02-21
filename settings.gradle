@@ -1,4 +1,5 @@
-include ':app:components'
-include ':app:figth'
+include ':app'
+include ':components'
+include ':figth'
 include ':core'
 rootProject.name = "Simulation"
