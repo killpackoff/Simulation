@@ -9,10 +9,8 @@ import dagger.Component
  * @author ma.kolpakov
  */
 @Core
-@Component(modules = [CoreModule::class, FragmentsModule::class])
+@Component(modules = [CoreModule::class, FirstFragmentModule::class])
 interface AppComponent {
-
     fun fragmentFactory(): MainFragmentFactory
-
 }
 
